@@ -9,25 +9,18 @@
 
 *使用说明*
 
-`type student struct {
- 	Name string
- 	Age  int8
- }
+`
  
- func formatAsDate(t time.Time) string {
- 	year, month, day := t.Date()
- 	return fmt.Sprintf("%d-%02d-%02d", year, month, day)
- }
- 
- func main() {
  	r := GoStarWeb.New()
  	r.Use(GoStarWeb.Logger())
+ 	
  	r.SetFuncMap(template.FuncMap{
  		"formatAsDate": formatAsDate,
  	})
+ 	
  	r.LoadHTMLGlob("templates/*")
  	r.Static("/assets", "./static")
- 
+
  	stu1 := &student{Name: "GoStarWeb", Age: 20}
  	stu2 := &student{Name: "GoStar", Age: 22}
  	r.GET("/", func(c *GoStarWeb.Context) {
@@ -48,4 +41,4 @@
  	})
  
  	r.Run(":9999")
- }`
+ `
