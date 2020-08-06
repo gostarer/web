@@ -1,2 +1,2 @@
 # GoStarWeb
-GoStar微服务框架WEB开发模块
+GoStar微服务框架之WEB开发组件框架
