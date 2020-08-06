@@ -20,29 +20,29 @@
  }
  
  func main() {
- 	r := gee.New()
- 	r.Use(gee.Logger())
+ 	r := GoStarWeb.New()
+ 	r.Use(GoStarWeb.Logger())
  	r.SetFuncMap(template.FuncMap{
  		"formatAsDate": formatAsDate,
  	})
  	r.LoadHTMLGlob("templates/*")
  	r.Static("/assets", "./static")
  
- 	stu1 := &student{Name: "Geektutu", Age: 20}
- 	stu2 := &student{Name: "Jack", Age: 22}
- 	r.GET("/", func(c *gee.Context) {
+ 	stu1 := &student{Name: "GoStarWeb", Age: 20}
+ 	stu2 := &student{Name: "GoStar", Age: 22}
+ 	r.GET("/", func(c *GoStarWeb.Context) {
  		c.HTML(http.StatusOK, "css.tmpl", nil)
  	})
- 	r.GET("/students", func(c *gee.Context) {
- 		c.HTML(http.StatusOK, "arr.tmpl", gee.H{
- 			"title":  "gee",
+ 	r.GET("/students", func(c *GoStarWeb.Context) {
+ 		c.HTML(http.StatusOK, "arr.tmpl", GoStarWeb.H{
+ 			"title":  "GoStarWeb",
  			"stuArr": [2]*student{stu1, stu2},
  		})
  	})
  
- 	r.GET("/date", func(c *gee.Context) {
- 		c.HTML(http.StatusOK, "custom_func.tmpl", gee.H{
- 			"title": "gee",
+ 	r.GET("/date", func(c *GoStarWeb.Context) {
+ 		c.HTML(http.StatusOK, "custom_func.tmpl", GoStarWeb.H{
+ 			"title": "GoStarWeb",
  			"now":   time.Date(2019, 8, 17, 0, 0, 0, 0, time.UTC),
  		})
  	})
