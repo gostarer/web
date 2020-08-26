@@ -1,4 +1,4 @@
-package GoStarWeb
+package web
 
 import (
 	"fmt"
